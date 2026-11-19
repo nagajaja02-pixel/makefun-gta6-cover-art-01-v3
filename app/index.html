@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cover Studio v3 — GTA-style cover art maker</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <h1>COVER STUDIO <span class="v3">v3</span></h1>
+    <p class="tagline">Turn any photo into a bold poster-style cover. Everything runs locally — your photo never leaves this device.</p>
+  </div>
+  <div class="top-actions">
+    <button id="surpriseBtn" class="action surprise">Surprise me</button>
+    <button id="shuffleBtn" class="action">Shuffle</button>
+    <button id="resetBtn" class="action ghost">Reset</button>
+  </div>
+</header>
+
+<main class="editor">
+  <section class="preview-col">
+    <div class="canvas-wrap">
+      <canvas id="preview" width="720" height="720"></canvas>
+      <p class="hint">Drag a panel to pan it · Scroll over a panel to zoom it</p>
+    </div>
+    <p id="statusLine" class="status"></p>
+    <div class="export-row">
+      <div class="aspect-group" role="group" aria-label="Poster size">
+        <button class="chip aspect active" data-aspect="square">Square 1080×1080</button>
+        <button class="chip aspect" data-aspect="portrait">Portrait 1080×1350</button>
+        <button class="chip aspect" data-aspect="wide">Wide 1920×1080</button>
+      </div>
+      <button id="exportBtn" class="action primary">Export PNG</button>
+    </div>
+  </section>
+
+  <section class="controls">
+    <div class="group">
+      <h2>1 · Photo</h2>
+      <label class="upload">
+        <input type="file" id="fileInput" accept="image/*" hidden>
+        <span>Choose a photo from your device</span>
+      </label>
+      <div class="sample-row">
+        <button id="samplePier" class="chip">Sample: Pier</button>
+        <button id="sampleBoulevard" class="chip">Sample: Boulevard</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <h2>2 · Layout</h2>
+      <div id="layoutBox" class="chip-grid"></div>
+    </div>
+
+    <div class="group">
+      <h2>3 · Colour grade</h2>
+      <div id="gradeBox" class="chip-grid"></div>
+    </div>
+
+    <div class="group">
+      <h2>4 · Caption lettering</h2>
+      <div id="letterBox" class="chip-grid"></div>
+      <label class="field">
+        <span>Caption</span>
+        <input id="captionInput" type="text" value="PORT SOLENNE" maxlength="40">
+      </label>
+      <label class="field">
+        <span>Subtitle</span>
+        <input id="subtitleInput" type="text" value="A LEONIDA STORY" maxlength="60">
+      </label>
+    </div>
+
+    <div class="group">
+      <h2>5 · Preset themes</h2>
+      <div id="presetBox" class="chip-grid"></div>
+    </div>
+  </section>
+</main>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
